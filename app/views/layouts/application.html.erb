@@ -20,9 +20,17 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
   </head>
 
   <body>
+    <%# Devise success and failure messages %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <%# Devise signout button %>
+    <%= button_to "sign out", destroy_user_session_path, :method => :delete if user_signed_in? %>
+
     <%= yield %>
   </body>
 </html>
