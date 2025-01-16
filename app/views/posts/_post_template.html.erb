@@ -1,0 +1,12 @@
+<div>
+  <h2><%= post.title %></h2>
+  <h2><%= post.description %></h2>
+  <p> Postado por <%= post.user.email %></p>
+  <p> última atualização: <%= post.updated_at %></p>
+  <hr/>
+
+  <% if post.user.id == current_user.id %>
+    <%= link_to "Editar Post", edit_post_path(post) %>
+    <%= button_to "Excluir Post", post, method: :delete %>
+  <% end %>
+</div>

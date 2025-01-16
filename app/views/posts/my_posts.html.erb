@@ -1,0 +1,8 @@
+<h1>meus posts</h1>
+
+<%= link_to "Feed", posts_path %>
+<%= link_to "Novo Post", new_post_path %>
+
+<% @posts.each do |post| %>
+  <%= render partial: "posts/post_template", locals: {post: post} %>
+<% end %>
