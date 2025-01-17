@@ -1,4 +1,6 @@
 <div>
+  <%= image_tag(post.image.attached? ? url_for(post.image) : image_path("fallback.png")) %>
+
   <h2><%= post.title %></h2>
   <h2><%= post.description %></h2>
   <p> Postado por <%= post.user.email %></p>

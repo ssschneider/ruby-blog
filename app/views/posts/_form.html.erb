@@ -1,5 +1,6 @@
 <%= form_with model:post do |form| %>
   <%= form.text_field :title, value: post.title, placeholder:"Título do post" %>
   <%= form.text_field :description, value: post.description, placeholder:"DEscrição do post" %>
+  <%= form.file_field :image %>
   <%= form.submit "Editar" %>
 <% end %>
