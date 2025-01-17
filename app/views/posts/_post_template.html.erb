@@ -11,4 +11,17 @@
     <%= link_to "Editar Post", edit_post_path(post) %>
     <%= button_to "Excluir Post", post, method: :delete %>
   <% end %>
+
+  <div class="comments">
+  <h4>Comments</h4>
+  <%= render post.comments %>
+</div>
+
+
+  <%= form_with model: [post, Comment.new], local: true do |form| %>
+    <%= form.text_area :content, placeholder: "Add a comment..." %>
+    <%= form.submit "Comment" %>
+  <% end %>
+
+
 </div>

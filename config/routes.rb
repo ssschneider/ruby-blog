@@ -14,4 +14,9 @@ Rails.application.routes.draw do
   # CRUD routes for posts
   resources :posts
   get "my_posts", to: "posts#my_posts"
+
+  # Add comments on posts
+  resources :posts do
+    resources :comments, only: :create
+  end
 end
