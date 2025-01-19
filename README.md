@@ -1,24 +1,56 @@
-# README
+<h1 align="center"> Ruby Blog </h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<p align="center">
+Ruby Blog is a blog-like application, where multiple users can interact though posts, by leaving comments an seeing posts other bloggers created in their timeline.<br/>
+</p>
 
-Things you may want to cover:
+<p align="center">
+  <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-deploy">Run Locally</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
 
-* Ruby version
+<p align="center">
+  <img alt="Preview" src=".github/preview.png" width="100%">
+</p>
 
-* System dependencies
 
-* Configuration
+## 🚀 Technologies
+- Ruby
+- Rails
+- HTML
+- CSS
+- Javascript
+- Devise
+- Active Record
 
-* Database creation
+## 💻 Run Locally
 
-* Database initialization
+> To run the project locally you must have `RUBY` and `RAILS` on your computer
+* Ruby version used: 3.4.1
+* Rails version used: 8.0.1
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+Steps to run it locally:
 
-* Deployment instructions
+1. Clone the Repository
 
-* ...
+```bash
+git clone https://github.com/ssschneider/ruby-blog.git
+``` 
+
+2. Run bundler to  ensure all gems are installed
+
+```bash
+bundle i
+```
+
+3. Start the rails server
+
+```bash
+rails s
+```
+
+<br/><br/>
+
+---
+### Developed by Sarah Schneider 🖖
