@@ -5,15 +5,15 @@
     <h2 class="post-title"><%= post.title %></h2>
     <nav class="post-nav">
       <% if post.user.id == current_user.id %>
-        <%= link_to "Editar Post", edit_post_path(post), class: "button" %>
-        <%= button_to "Excluir Post", post, method: :delete, class: "button-secondary" %>
+        <%= link_to "Edit", edit_post_path(post), class: "button" %>
+        <%= button_to "Delete", post, method: :delete, class: "button-secondary" %>
       <% end %>
     </nav>
   </div>
   
   <p class="post-content"><%= post.description %></p>
-  <p class="post-author"> Postado por <%= post.user.email %></p>
-  <p class="post-update"> Última atualização: há <%= time_ago_in_words(post.updated_at) %></p>
+  <p class="post-author"> Author <%= post.user.email %></p>
+  <p class="post-update"> Last update: <%= time_ago_in_words(post.updated_at) %></p>
   <hr/>
 
   <div class="comment-section-wrapper">
