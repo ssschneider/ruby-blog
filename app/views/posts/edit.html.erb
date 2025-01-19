@@ -1,5 +1,14 @@
-<h1>EDitar Post</h1>
 
-<%= link_to "Meus posts", my_posts_path %>
+
+<div class="home-wrapper">
+  <header class="home-header">
+      <h1 class="home-title">Edit Post</h1>
+      <nav class="home-nav">
+        <%= link_to "Feed", posts_path, class: "button" %>
+        <%= link_to "My Posts", my_posts_path, class: "button-secondary" %>
+
+      </nav>
+    </header>
 
 <%= render partial: "posts/form", locals: {post: @post} %>
+</div>

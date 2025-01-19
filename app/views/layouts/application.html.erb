@@ -18,18 +18,23 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag :app, media:"all", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", media:"all", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "home", media:"all", "data-turbo-track": "reload" %>
+
     <%= javascript_importmap_tags %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
   </head>
 
   <body>
-    <%# Devise success and failure messages %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <header>
+      <%# Devise success and failure messages %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
-    <%# Devise signout button %>
-    <%= button_to "sign out", destroy_user_session_path, :method => :delete if user_signed_in? %>
+      <%# Devise signout button %>
+      <%= button_to "Sign Out", destroy_user_session_path, :method => :delete , class: "button-secondary" if user_signed_in? %>
+    </header>
 
     <%= yield %>
   </body>

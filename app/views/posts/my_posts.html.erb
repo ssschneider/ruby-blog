@@ -1,8 +1,16 @@
-<h1>meus posts</h1>
+<div class="home-wrapper">
+  <header class="home-header">
+      <h1 class="home-title">My Posts</h1>
+      <nav class="home-nav">
+        <%= link_to "Feed", posts_path, class: "button" %>
+        <%= link_to "Novo Post", new_post_path, class: "button-secondary" %>
 
-<%= link_to "Feed", posts_path %>
-<%= link_to "Novo Post", new_post_path %>
+      </nav>
+    </header>
 
-<% @posts.each do |post| %>
-  <%= render partial: "posts/post_template", locals: {post: post} %>
-<% end %>
+<section class="home-posts-wrapper">
+    <% @posts.each do |post| %>
+      <%= render partial: "posts/post_template", locals: {post: post} %>
+    <% end %>
+  </section>
+</div>

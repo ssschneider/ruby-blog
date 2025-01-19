@@ -1,27 +1,32 @@
-<div>
-  <%= image_tag(post.image.attached? ? url_for(post.image) : image_path("fallback.png")) %>
+<div class="post-wrapper">
+  <%= image_tag(post.image.attached? ? url_for(post.image) : image_path("fallback.png"), class: "post-image") %>
 
-  <h2><%= post.title %></h2>
-  <h2><%= post.description %></h2>
-  <p> Postado por <%= post.user.email %></p>
-  <p> última atualização: <%= post.updated_at %></p>
+  <div class="post-header">
+    <h2 class="post-title"><%= post.title %></h2>
+    <nav class="post-nav">
+      <% if post.user.id == current_user.id %>
+        <%= link_to "Editar Post", edit_post_path(post), class: "button" %>
+        <%= button_to "Excluir Post", post, method: :delete, class: "button-secondary" %>
+      <% end %>
+    </nav>
+  </div>
+  
+  <p class="post-content"><%= post.description %></p>
+  <p class="post-author"> Postado por <%= post.user.email %></p>
+  <p class="post-update"> Última atualização: há <%= time_ago_in_words(post.updated_at) %></p>
   <hr/>
 
-  <% if post.user.id == current_user.id %>
-    <%= link_to "Editar Post", edit_post_path(post) %>
-    <%= button_to "Excluir Post", post, method: :delete %>
-  <% end %>
-
-  <div class="comments">
-  <h4>Comments</h4>
+  <div class="comment-section-wrapper">
+  <h4 class="post-comments-section-title">Comments</h4>
   <%= render post.comments %>
 </div>
 
 
-  <%= form_with model: [post, Comment.new], local: true do |form| %>
-    <%= form.text_area :content, placeholder: "Add a comment..." %>
-    <%= form.submit "Comment" %>
-  <% end %>
+  <%= form_with model: [post, Comment.new], local: true, html: { class: "add-comment-wrapper" } do |form| %>
+  <%= form.text_area :content, placeholder: "Add a comment...", class: "add-comment-content" %>
+  <%= form.submit "Comment", class: "button" %>
+<% end %>
+
 
 
 </div>

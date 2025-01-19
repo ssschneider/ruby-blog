@@ -1,10 +1,182 @@
+/* app/assets/stylesheets/application.css */
+
 /*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
+ *= require home
+ *= require_tree .
+ *= require_self
  */
+
+:root {
+  /* color zinc */
+  --black: #09090B;
+  --white: #F4F4F5;
+
+  --gray-dark: #18181B; 
+  --gray-medium: #3F3F46;
+  --gray-light: #71717A;
+
+  --primary: #EA580C;
+  --primary-hover: #F97316;
+
+
+  --red: #DC2626;
+  --green: #16A34A;
+
+  /* sizes */
+  --sm: .75rem;
+  --md: 1rem;
+  --lg: 1.5rem;
+  --xl: 2rem;
+  --xxl: 2.5rem;
+
+  /* font weight */
+  --font-bold: 700;
+  --font-medium: 500;
+  --font-regular: 400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-weight: var(--font-regular);
+  font-size: var(--md);
+}
+
+header {
+  display: flex;
+  padding: var(--lg);
+  justify-content: right;
+}
+
+.notice, .alert {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: var(--sm);
+}
+
+.notice {
+  background-color: var(--green);
+}
+
+.alert {
+  background-color: var(--red);
+}
+
+body {
+  background-color: var(--gray-dark);
+}
+
+.button, .button-secondary, input[type="submit"] {
+  font-weight: var(--font-medium);
+  font-size: var(--md);
+  text-decoration: none;
+  outline: none;
+  padding: var(--sm) var(--lg);
+  border-radius: 8px;
+  transform: all .5s linear;
+}
+
+.button {
+  background-color: var(--primary);
+  color: var(--black);
+}
+
+.button:hover {
+  background-color: var(--primary-hover);
+  cursor: pointer;
+}
+
+.button-secondary {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.button-secondary:hover {
+  opacity: .8;
+  cursor: pointer;
+}
+
+form.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--md);
+  width: 500px;
+  margin: 80px auto;
+}
+
+div.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--md);
+  width: 100%;
+}
+
+div.remember {
+  display: flex;
+  align-items: center;
+  gap: var(--sm);
+}
+
+div.links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sm);
+  justify-content: center;
+  align-items: center;
+}
+
+a.link {
+  color: var(--white);
+  text-underline-offset: 4px;
+}
+
+label.form-label, span.form-label {
+  color: var(--white);
+  font-size: var(--md);
+  font-weight: var(--font-medium);
+}
+
+input.form-input {
+  background-color: transparent;
+  padding: var(--sm);
+  outline: none;
+  border: 1px solid var(--white);
+  color: var(--white);
+  width: 100%;
+  border-radius: 8px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+label.form-file-upload {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  display: inline-block;
+  padding: var(--sm) var(--lg);
+  cursor: pointer;
+  text-align: center;
+  border-radius: 8px;
+}
+
+#error_explanation h2 {
+  display: none;
+}
+
+#error_explanation ul.error-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sm);
+}
+
+#error_explanation li.error {
+  color: var(--red);
+  font-size: var(--lg);
+}
